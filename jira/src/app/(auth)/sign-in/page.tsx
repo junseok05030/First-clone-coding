@@ -1,7 +1,5 @@
 const SignInpage = () => {
-    return ( <div>
-        Sign up page
-    </div> );
+    return <SignInCard
 }
  
 export default SignInpage;

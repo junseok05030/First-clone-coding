@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
+import { cn } from "@/lib/utils";
+const inter = Inter({subsets : ["latin"]});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={cn(inter.className,"antialiased min-h-screen")}}>
         {children}
       </body>
     </html>
