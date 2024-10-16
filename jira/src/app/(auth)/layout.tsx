@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -25,4 +26,4 @@ const Authlayout = ({children}: AuthLayoutProps) => {
      );
 }
  
-export default Authlayout; //54분 메@모
+export default Authlayout; 
