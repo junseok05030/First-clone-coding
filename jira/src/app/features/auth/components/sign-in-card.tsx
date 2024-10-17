@@ -1,10 +1,12 @@
 import { z } from "zod";
+import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Link from "next/link";
+
 import { DottedSeparator } from "@/components/dotted-separator";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
@@ -14,8 +16,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import React from "react";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -36,9 +36,9 @@ export const SignInCard = () => {
   };
 
   return (
-    <Card className="w-full h-full md:w [487px] border-none shadow-none">
+    <Card className="w-full h-full md:w-[487px] border-none shadow-none">
       <CardHeader className="flex items-center justify-center text-center p-7">
-        <CardTitle className="text-2xl ">welcome back!</CardTitle>
+        <CardTitle className="text-2xl">Welcome back!</CardTitle>
       </CardHeader>
       <div className="px-7">
         <DottedSeparator />
@@ -55,31 +55,29 @@ export const SignInCard = () => {
                     <Input
                       {...field}
                       type="email"
-                      placeholder="Enter email address" //placeholder
+                      placeholder="Enter email address"
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <FormField
-              name="email"
+              name="password"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <Input
                       {...field}
-                      type="email"
-                      placeholder="Enter email address" //placeholder
+                      type="password"
+                      placeholder="Enter password"
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
             <Button disabled={false} size="lg" className="w-full">
               Login
             </Button>
@@ -96,7 +94,7 @@ export const SignInCard = () => {
           size="lg"
           className="w-full"
         >
-          <FcGoogle size={"full"} />
+          <FcGoogle />
           Login with Google
         </Button>
         <Button
@@ -105,7 +103,7 @@ export const SignInCard = () => {
           size="lg"
           className="w-full"
         >
-          <FaGithub size={"full"} />
+          <FaGithub />
           Login with Github
         </Button>
       </CardContent>
@@ -115,7 +113,7 @@ export const SignInCard = () => {
       <CardContent className="p-7 flex items-center justify-center">
         <p>
           Don&apos;t have an account?
-          <Link href="/sign-up">
+          <Link href="sign-up">
             <span className="text-blue-700">&nbsp;Sign Up</span>
           </Link>
         </p>
