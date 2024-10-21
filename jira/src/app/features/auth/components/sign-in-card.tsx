@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { loginSchema } from "../schema";
 import { useLogin } from "../api/use-login";
+import { json } from "stream/consumers";
 
 
 
@@ -33,8 +34,9 @@ export const SignInCard = () => {
   });
 
   const onSubmit = (values: z.infer<typeof loginSchema>) => {
-    mutate(values);
-  };
+    mutate({
+      json: values
+  });
 
   return (
     <Card className="w-full h-full md:w-[487px] border-none shadow-none">
