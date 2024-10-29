@@ -18,7 +18,7 @@ export default function Home() {
       router.push("/sign-in");
     }
   }, [data]);
-  //!data = data가 존재하는가
+
   
 
   return (
