@@ -31,11 +31,11 @@ export const UserButton = () => {
 
     const AvatarFallback = name
     ? name.charAt(0).toUpperCase()
-    : email.charAt(0).toupperCase() ?? "U";
+    : email.charAt(0).toUpperCase() ?? "U";
     return (
-        <Avatar>
-            <AvatarFallback>
-
+        <Avatar className="size-10 hover:opacity-75 transtion border border-neutral-300">
+            <AvatarFallback className = "bg-neutral-200 font-medium text-neutral-500 flex items-center justify-center">
+                {AvatarFallback}
             </AvatarFallback>
         </Avatar>
     )
