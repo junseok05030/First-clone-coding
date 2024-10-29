@@ -16,6 +16,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+//form : 
+//zod : 타입을 정확하게 지정하게 해주는거
 import { loginSchema } from "../schema";
 import { useLogin } from "../api/use-login";
 

@@ -1,5 +1,5 @@
 import { z } from "zod";
-
+//schema : 타입 저장해놓는곳
 export const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(1, "Required"),
