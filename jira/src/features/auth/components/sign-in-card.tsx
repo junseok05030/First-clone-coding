@@ -1,14 +1,14 @@
-import { z } from "zod";
-import Link from "next/link";
+"use client";
+
+import { z } from "zod"; //타입을 정확하게 지정할수 있게하는애임
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -16,13 +16,12 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-//form : 
-//zod : 타입을 정확하게 지정하게 해주는거
-import { loginSchema } from "../schema";
+import Link from "next/link";
+import { loginSchema } from "../schemas";
 import { useLogin } from "../api/use-login";
 
 export const SignInCard = () => {
-  const { mutate } = useLogin();
+  const { mutate, isPending } = useLogin();
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -79,7 +78,8 @@ export const SignInCard = () => {
                 </FormItem>
               )}
             />
-            <Button disabled={false} size="lg" className="w-full">
+
+            <Button disabled={isPending} size={"lg"} className="w-full">
               Login
             </Button>
           </form>
@@ -88,37 +88,36 @@ export const SignInCard = () => {
       <div className="px-7">
         <DottedSeparator />
       </div>
+
       <CardContent className="p-7 flex flex-col gap-y-4">
         <Button
-          disabled={false}
-          variant="secondary"
-          size="lg"
+          disabled={isPending}
+          variant={"secondary"}
+          size={"lg"}
           className="w-full"
         >
-          <div className="mr-2 size-5">
-            <FcGoogle size="full" />
-          </div>
+          <FcGoogle className="mr-2 size-5" />
           Login with Google
         </Button>
         <Button
-          disabled={false}
-          variant="secondary"
-          size="lg"
+          disabled={isPending}
+          variant={"secondary"}
+          size={"lg"}
           className="w-full"
         >
-          <div className="mr-2 size-5">
-            <FaGithub size="full" />
-          </div>
+          <FaGithub className="mr-2 size-5" />
           Login with Github
         </Button>
       </CardContent>
+
       <div className="px-7">
         <DottedSeparator />
       </div>
+
       <CardContent className="p-7 flex items-center justify-center">
         <p>
           Don&apos;t have an account?
-          <Link href="sign-up">
+          <Link href={"/sign-up"}>
             <span className="text-blue-700">&nbsp;Sign Up</span>
           </Link>
         </p>
@@ -126,3 +125,5 @@ export const SignInCard = () => {
     </Card>
   );
 };
+
+//UI 모으기
