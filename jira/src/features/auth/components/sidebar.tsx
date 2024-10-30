@@ -1,6 +1,8 @@
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Link } from "lucide-react";
+
 import Image from "next/image";
+import { Navigation } from "./navigation";
 
 export const Sidebar = () => {
     return (
