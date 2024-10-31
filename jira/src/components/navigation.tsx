@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
 import { SettingsIcon, UsersIcon } from "lucide-react";
 import Link from "next/link";
-import { FaLess } from "react-icons/fa";
 import { GoCheckCircle, GoCheckCircleFill, GoHome, GoHomeFill } from "react-icons/go";
+
+import { cn } from "@/lib/utils";
 
 const routes = [
   {
@@ -14,7 +14,7 @@ const routes = [
   {
     label: "My Tasks",
     href: "/tasks",
-    icon: SettingsIcon,
+    icon: GoCheckCircle,
     activeIcon: GoCheckCircleFill,
   },
   {

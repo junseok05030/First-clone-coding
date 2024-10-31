@@ -26,14 +26,14 @@ import {
 
 import Link from "next/link";
 
-import { registerSchema } from "../schemas";
+import { registerschema } from "../schemas";
 import { useRegister } from "../api/use-register";
 
 export const SignUpCard = () => {
   const { mutate, isPending } = useRegister();
 
-  const form = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
+  const form = useForm<z.infer<typeof registerschema>>({
+    resolver: zodResolver(registerschema),
     defaultValues: {
       name: "",
       email: "",
@@ -41,7 +41,7 @@ export const SignUpCard = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof registerSchema>) => {
+  const onSubmit = (values: z.infer<typeof registerschema>) => {
     console.log("first");
 
     mutate({ json: values });
